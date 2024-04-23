@@ -3,11 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./configuration.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Creando Perfil</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header>
+        <div id="LoadBar">
+            <!-- <div class="checkpointBar"></div>
+            <div class="checkpointBar"></div>
+            <div class="checkpointBar"></div>
+            <div class="checkpointBar"></div> -->
+        </div>
+        <nav>
+            <a class="lineProceso">Informacion personal</a><span class="separadorA">></span>
+            <a class="lineProceso">Tipo de Usuario</a><span class="separadorA">></span>
+            <a class="lineProceso">Tipo de Negocio</a><span class="separadorA">></span>
+            <a class="lineProceso">Ventas</a>
+        </nav>
+        <span id="logo">LOGO</span>
+    </header>
+    <main>
+        <form action="">
+            <div><h2 id="mensajeConfiguration"></h2></div>
+            <div id="infoPerso">
+                <h2>Información Personal</h2>
+                <h5>Cuenta nos un poco sobre ti</h5>
+                <div id="inputsInfoPerso">
+                    <input class="inputInsert" type="text" name="name" id="CreateName" placeholder="Nombre" >
+                    <input class="inputInsert" type="text" name="lastName" id="CreateLastName" placeholder="Apellidos">
+                    <input class="inputInsert"  maxlength="10" minlength="10" type="tel" name="numberPhone" placeholder="Celular">
+                </div>
+                <div class="nextConfig">                
+                    <span class="nextBtn">Siguiente</span>
+                    <span class="material-symbols-outlined">navigate_next</span>
+                </div>
+
+            </div>
+
+            <div id="createUser">
+                <h2>Tipo de Usuario</h2>
+                <h5>¿Que tipo de cuenta quieres tener?</h5>
+                <div class="userType">
+                    <input  class="typeAccountInpt" value="cliente" type="radio" name="typeAccount" >
+                    <label for="typeAccount" >Cliente</label>
+                    <input class="typeAccountInpt" value="negocio" type="radio" name="typeAccount" >
+                    <label for="typeAccount" >Negocio</label>
+                </div>
+            </div>
+            <div><h2 id="mensajeUser"></h2></div>
+            <div>
+                <div id="negocioInfo">
+                        <h2>Tipo de Negocio</h2>
+                        <h5>Cuenta nos un poco sobre tu negocio</h5>
+                        <div>
+                            <label for="nameNegocio">¿Que nombre tiene tu negocio?</label>
+                            <input class="inputInsert" name="nameNegocio" type="text">
+                            <h2 id="cuantasPersonas">¿Cuantas personas conforman?</h2>
+                            <div class="labelCircle">
+                                <input value="1" class="check" name="empleados" type="radio">
+                                <label for="empleados">Solo yo</label>
+                            </div>
+                            <div class="labelCircle">
+                                <input value="2-10" class="check" type="radio" name="empleados" id="two10">
+                            <label for="empleados">De 2 a 10 Personas</label>
+                            </div>
+                            <div class="labelCircle">
+                                <input value="11-30" class="check" type="radio" name="empleados" id="two10">
+                                <label for="empleados">De 11 a 30 Personas</label>
+                            </div>
+                            <div class="labelCircle">
+                                <input value="50+" class="check" type="radio" name="empleados" id="fivetyMore">
+                                <label for="empleados">50 o Más Personas</label>
+                            </div>
+                            <div class="nextConfig">                
+                                <span class="nextBtn">Siguiente</span>
+                                <span class="material-symbols-outlined">navigate_next</span>
+                            </div>
+                    </div>
+                    <h2 id="mensajeUser"></h2></div>
+            
+ 
+            <div id="sucursal">
+                <div>
+                    <h2>¿Cuenta con una sucursal?</h2>
+                    <input value="si" class="check" type="radio" name="sucursal" id="siLocalSite">
+                    <label for="si">Si</label>
+                    <input value="no" class="check" type="radio" name="sucursal" id="noLocalSite">
+                    <label for="no">No</label>
+                </div>
+            </div>
+                <div id="sucursalN">
+                    <h2>Numero de Sucursales:</h2>
+                    <select name="numberLocalSite" id="numberLocalSite">
+                        <option value="0">Elige</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">Más</option>
+                    </select>
+                    <div class="nextConfig">                
+                        <span class="nextBtn">Siguiente</span>
+                        <span class="material-symbols-outlined">navigate_next</span>
+                    </div>
+                </div>
+                <div id="sucursalNames">
+                    <h2>¿Nombre de la sucursal?</h2>
+                    <input class="inputInsert" type="text" name="nameLocal1" id="nameLocal1" placeholder="Nombre de sucursal 1">
+                    <div id="contenedorDeNombres">
+
+                    </div>
+                    <div class="nextConfig">                
+                        <span class="nextBtn">Siguiente</span>
+                        <span class="material-symbols-outlined">navigate_next</span>
+                    </div>
+                </div>
+                <div id="imgTypeNe">
+                    <h2>Tipo De Negocio</h2>
+                    <div id="container-typeN">
+                        <div class="ofrece">
+                            <img class="imgTypeN" src="./assets/icons/dinner.png" alt="">
+                            <span class="spanTypeN">Alimentos</span>
+                        </div>
+                        <div class="ofrece">
+                            <img class="imgTypeN" src="./assets/icons/travel-and-tourism.png" alt="">
+                            <span class="spanTypeN">Servicios</span>
+                        </div>
+                        <div class="ofrece">
+                            <img class="imgTypeN" src="./assets/icons/menu.png" alt="">
+                            <span class="spanTypeN">Otros</span>
+                        </div>
+                    </div>
+                    <div id="finishConfig">                
+                        <span class="nextBtn">Finalizar</span>
+                        <span class="material-symbols-outlined">navigate_next</span>
+                    </div>
+                </div>
+        </form>
+    </main>
     <script src="./configuration.js"></script>
 </body>
 </html>

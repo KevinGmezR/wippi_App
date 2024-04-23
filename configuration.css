@@ -1,0 +1,208 @@
+body::-webkit-scrollbar{
+    width: 8px;
+    background-color: #ffd691;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #31578f;
+    border-radius: 15px;
+    height: 10px;
+    border: 2px solid #dbb675;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color:#31578f;
+}
+#logo{
+    position: absolute;
+    left: 90%;
+    top: 2%;
+}
+span{
+    color: #ffd691;
+    font-weight: 900;
+    font-size: 15px;
+}
+.inputInsert{
+    border: 2px;
+    border-bottom: 2px solid #ffd691;
+}
+#numberLocalSite{
+    background-color: #31578f;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.ofrece{
+    width: 40%;
+    height: 40%;
+    padding: 10px;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7px;
+}
+.ofrece:hover{
+    box-shadow: 2px 2px 5px #003a5c65, -2px -2px 5px #808080 ;
+    border: 2px solid #31578f;
+    background-color: #cecece;
+    border-radius: 15px;
+}
+#container-typeN{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.spanTypeN{
+    color: #3271cf;
+    font-weight: 500;
+}
+#LoadBar{
+    width: 12%;
+    height: 5px;
+    background-color: #e4e4e4;
+    padding: 0;
+    background-color: #ffd691;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    margin-left: 1px;
+    margin-right: 2px;
+}
+
+.nextBtn{
+  
+    color: #3271cf;
+    border:none;
+    font-size: 17px;
+    background-color: white;
+    cursor: pointer;
+}
+.material-symbols-outlined{
+    color: white;
+    -webkit-text-stroke: 2px #3271cf;
+    box-shadow: 1px 1px 5px #3271cf, -1px 1px 5px #8db8f8;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 700;
+    user-select: none;
+    cursor: pointer;
+}
+.nextConfig{
+    width: 120px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    user-select: none;
+    cursor: pointer;
+    padding: 5px;
+    position: relative;
+    margin-top: 30px;
+    left: 70%;
+}
+.nextConfig:hover{
+border: 1px solid #31578f;
+border-radius: 25px;
+box-shadow: 1px 2px 10px #2b4b7c6e, -1px -2px 4px #ffd79180;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.imgTypeN{
+    height: 80px;
+}
+#inputsInfoPerso{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+#inputsInfoPerso input{
+    margin-top: 10px;
+    padding: 2px 10px;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+#inputsInfoPerso input:hover{
+    border-radius: 25px;
+    border: 1px solid #ffd691;
+    box-shadow: 1px 2px 3px #1e365869,-1px -2px 2px #cecece63;
+}
+.lineProceso{
+    user-select: none;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.lineProceso:hover{
+    text-decoration:underline;
+}
+.checkCircle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.labelCircle{
+    display: flex;
+}
+.userType{
+    display: flex;
+}
+.finishConfig{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.finishConfig:hover{
+    border: 1px solid #31578f;
+    border-radius: 25px;
+    box-shadow: 1px 2px 10px #2b4b7c6e, -1px -2px 4px #ffd79180;
+}
+nav{
+    margin-left: 5px;
+    align-items: center;
+}
+#imgTypeNe{
+    display: flex;
+    flex-direction: column;
+}
+.typeAccountInpt{
+    margin-left: 25px;
+    
+}
+@keyframes letras {
+    0%{
+        opacity: 10%;
+        scale: 70%;
+    }
+    50%{
+        opacity: 1;
+        scale: 90%;
+    }
+    100%{
+        opacity: 0;
+        scale: 100%;
+    }
+}
+

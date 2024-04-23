@@ -89,6 +89,7 @@ h3{
     border-radius: 20px;
     text-align-last: center;
     user-select: none;
+    font-size: 25px;
 }
 #user{
     margin-top: 20px;
@@ -101,12 +102,12 @@ h3{
    
 }
 #registrar{
-    color: #15253d;
+    color: #31578f;
     text-decoration:underline;
     cursor: pointer;
 }
 #registrar:hover{
-    color: #31578f;
+    color: white;
     font-weight: 700;
 }
 #viewPass{
@@ -114,7 +115,7 @@ h3{
     color: #31578f;
     background-color: white;
     position: relative;
-    top: 6%;
+    top: 9%;
     left: 37%;
     user-select: none;
     cursor: pointer;
@@ -124,7 +125,7 @@ h3{
     color: #31578f;
     background-color: white;
     position: relative;
-    top: 6%;
+    top: 9%;
     left: 37%;
     user-select: none;
     cursor: pointer;
@@ -189,4 +190,20 @@ h3{
         opacity: 0%;
     }
 }
-  
+@media (max-width:746px) {
+        #loginBox{
+            width: 90%;
+        }
+        #viewPass{
+            left: 36%;
+        }
+        .text{
+            margin-top: 10px;
+            color: white;
+        }
+        #registrar{
+            color: white;
+            border-radius: 15px;
+            padding: 7px;
+        }
+}
