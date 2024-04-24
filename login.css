@@ -143,6 +143,13 @@ h3{
     align-items: center;
     
 }
+#register{
+    background-color: #ffd691;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px 10px;
+    margin: 0;
+}
 
 @keyframes changeColors {
     0%{
