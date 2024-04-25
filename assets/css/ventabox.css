@@ -3,7 +3,7 @@
     height: 500px;
     background-color: white;
     position: absolute;
-    left: 50%;
+    left: 0;
     top: 50%;
     transform: translate(-50%,-50%);
     margin: auto;
@@ -11,21 +11,65 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    transition: all 500ms;
+    opacity: 0;
+    display: "none";
+    border-radius: 10px;
+    box-shadow: 1px 3px 10px rgba(74, 73, 73, 0.579), -3px -1px 10px #3232327c;
 }
 #infoPayment{
-    width: 100%;
-    height: 200px;
+    width: 90%;
+    height: 100px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 0;
+    background-color: #cecece;
+    margin: auto;
 }
 #infoPayment div{
     margin: auto;
-    width: 220px;
+    width: 120px;
     height: 100px;
+    background-color: #cecece;
+    text-align: center;
 }
 input{
     outline: none;
+}
+.btnGropuPayment{
+    transition: 500ms;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #f4c869;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+    color: #31578f;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.Btns_abajo{
+    width: 90%;
+    height: auto;
+    display: flex;
+}
+#ventaForm .inputs{
+    margin: auto;
+    background-color: #f4f4f4;
+    border: 2px solid #31578f;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    transition: all 200ms;
+    font-weight: 500;
+}
+.inputs:hover{
+    border: none;
+    background-color: #cecece;
+    border-bottom: 2px solid #f4c869;
+    user-select: none;
+    cursor: pointer;
 }

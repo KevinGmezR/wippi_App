@@ -4,18 +4,18 @@
     box-sizing: border-box;
 }
 body{
-    background-image: url(./assets/image/background_img.jpg);
+    background-image: url(../image/background_img.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     font-family: sans-serif;
-    animation-name: changeImg;
+    /* animation-name: changeImg;
     animation-duration: 50s;
     animation-delay: 10s;
     animation-timing-function:ease(1000ms);
     animation-direction:normal;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 main{
     width: 100%;
@@ -137,15 +137,15 @@ form input{
 
 @keyframes changeImg {
     0%{
-        background-image: url(./assets/image/background_img.jpg);
+        background-image: url(../assets/image/background_img.jpg);
         background-position: center;
     }
     60%{
-        background-image: url(./assets/image/background_img1.jpg);
+        background-image: url(../assets/image/background_img1.jpg);
         background-position: center;
     }
     100%{
-        background-image: url(./assets/image/background_img.jpg);
+        background-image: url(../assets/image/background_img.jpg);
         background-position: center;
     }
 }
