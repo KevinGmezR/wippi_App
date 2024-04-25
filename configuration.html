@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./configuration.css">
+    <link rel="stylesheet" href="./assets/css/configuration.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Creando Perfil</title>
 </head>
@@ -16,7 +16,6 @@
             <div class="checkpointBar"></div> -->
         </div>
         <nav>
-            <a class="lineProceso">Informacion personal</a><span class="separadorA">></span>
             <a class="lineProceso">Tipo de Usuario</a><span class="separadorA">></span>
             <a class="lineProceso">Tipo de Negocio</a><span class="separadorA">></span>
             <a class="lineProceso">Ventas</a>
@@ -26,24 +25,9 @@
     <main>
         <form action="">
             <div><h2 id="mensajeConfiguration"></h2></div>
-            <div id="infoPerso">
-                <h2>Información Personal</h2>
-                <h5>Cuenta nos un poco sobre ti</h5>
-                <div id="inputsInfoPerso">
-                    <input class="inputInsert" type="text" name="name" id="CreateName" placeholder="Nombre" >
-                    <input class="inputInsert" type="text" name="lastName" id="CreateLastName" placeholder="Apellidos">
-                    <input class="inputInsert"  maxlength="10" minlength="10" type="tel" name="numberPhone" placeholder="Celular">
-                </div>
-                <div class="nextConfig">                
-                    <span class="nextBtn">Siguiente</span>
-                    <span class="material-symbols-outlined">navigate_next</span>
-                </div>
-
-            </div>
-
             <div id="createUser">
                 <h2>Tipo de Usuario</h2>
-                <h5>¿Que tipo de cuenta quieres tener?</h5>
+                <h5 id="tipousuario">¿Que tipo de cuenta quieres tener?</h5>
                 <div class="userType">
                     <input  class="typeAccountInpt" value="cliente" type="radio" name="typeAccount" >
                     <label for="typeAccount" >Cliente</label>
@@ -59,7 +43,7 @@
                         <div>
                             <label for="nameNegocio">¿Que nombre tiene tu negocio?</label>
                             <input class="inputInsert" name="nameNegocio" type="text">
-                            <h2 id="cuantasPersonas">¿Cuantas personas conforman?</h2>
+                            <h2 id="cuantasPersonas">¿Cuantas personas lo conforman?</h2>
                             <div class="labelCircle">
                                 <input value="1" class="check" name="empleados" type="radio">
                                 <label for="empleados">Solo yo</label>
@@ -127,7 +111,7 @@
                     <div id="container-typeN">
                         <div class="ofrece">
                             <img class="imgTypeN" src="./assets/icons/dinner.png" alt="">
-                            <span class="spanTypeN">Alimentos</span>
+                            <span class="spanTypeN">Restaurantes</span>
                         </div>
                         <div class="ofrece">
                             <img class="imgTypeN" src="./assets/icons/travel-and-tourism.png" alt="">
@@ -145,6 +129,7 @@
                 </div>
         </form>
     </main>
-    <script src="./configuration.js"></script>
+    <script src="./assets/script/configuration.js"></script>
+    
 </body>
 </html>
