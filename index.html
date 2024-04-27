@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/ventabox.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,200" />
-        <title>Inicio - Wipii</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>   
+    <title>Inicio - Wipii</title>
 </head>
     <header>
         <span id="closeMen" class="material-symbols-outlined">close</span>
@@ -87,25 +88,11 @@
                     <option value="10"></option>
                 </datalist>
                 <input class="btnGropuPayment" type="button"  value="Añadir Producto" id="añadirP"><br>
-                <input list="dineroRecibido" class="inputs" type="number"  id="recibido" placeholder="Se recibe" min="7000">
-                <datalist id="dineroRecibido">
-                    <option value="$ 5.000"></option>
-                    <option value="$ 7.000"></option>
-                    <option value="$ 10.000"></option>
-                    <option value="$ 20.000"></option>
-                    <option value="$ 50.000"></option>
-                    <option value="$ 100.000"></option>
-                </datalist>
-                <input class="inputs" list="propinas" type="number" placeholder="Propina" min="1">
-                <datalist id="propinas">
-                    <option value="5%"></option>
-                    <option value="10%"></option>
-                    <option value="15%"></option>
-                    <option value="35%"></option>
-                </datalist>
+                <input  class="inputs" type="number"  id="recibido" placeholder="Se recibe" min="7000">
+                <input class="inputs"  type="number" placeholder="Propina" min="1">
             </form>
             <div>
-                <table>
+                <table id="productos_comprados">
                     <thead>
                         <tr>
                             <th scope="col">PRODUCTO</th>
@@ -134,9 +121,18 @@
                 </div>
             <div class="Btns_abajo">
                 <input class="btnGropuPayment" type="button" value="Cerrar" id="cerrarVentana" >
-                <input class="btnGropuPayment" type="button" value="Facturar">
+                <input class="btnGropuPayment" type="button" value="Facturar" id="facturarBtn">
             </div>
         </div>
+        <section id="recibo">
+            <h2>Factura</h2>
+            <div id="contenedor_tabla" >
+
+            </div>
+            <div id="informacion_pago">
+
+            </div>
+        </section>
     </main>
     <footer></footer>
     <script src="./assets/script/index.js"></script>
@@ -144,72 +140,91 @@
     <script>
 const boton_añadir = document.getElementById("añadirP");
         boton_añadir.addEventListener('click', insertarFila);
-        
-                function insertarFila(producto, codigo, cantidad, valor) {
-            // Obtener el cuerpo de la tabla
-            var cuerpoTabla = document.getElementById("cuerpoTabla");
-            
-            //obtener datos//
-            const productoInpt = document.getElementById("productSelect");
-            const cantidadInpt = document.getElementById("cantidad");
-        
 
-            // Crear una nueva fila y celdas
-            var fila = document.createElement("tr");
-            var celdaProducto = document.createElement("th");
-            var celdaCodigo = document.createElement("td");
-            var celdaCantidad = document.createElement("td");
-            var celdaValor = document.createElement("td");
+ const totalString = document.getElementById("dinero");
 
 
-                    switch(productoInpt.value){
-                        case "Hamburguesa" :
-                        valorP=parseInt(15000);
-                        codigoP="HAM7071";
-                        break;
-                        case "Perro Caliente" :
-                        valorP=parseInt(7000);
-                        codigoP="PER1603";
-                        break;
-                        case "Picada Normal" :
-                        valorP=parseInt(14000);
-                        codigoP="PIC7642";
-                        break;
-                        case "Picada Familiar" :
-                        valorP=parseInt(29900);
-                        codigoP="PIC3488";
-                        break;
-                        case "Especial" :
-                        valorP=parseInt(45000);
-                        codigoP="ESP2447";
-                        break;
-                    }
-                producto=productoInpt.value;
-                cantidad=cantidadInpt.value;
-                valor=valorP;
-                codigo=codigoP;
-            
-                    
+// Variable global para almacenar la suma total
+var sumaTotal = 0;
 
-            // Agregar los valores a las celdas
-            celdaProducto.textContent =producto;
-            celdaCodigo.textContent = codigo;
-            celdaCantidad.textContent =cantidad;
-            celdaValor.textContent =valor;
-            
-            // Agregar las celdas a la fila
-            fila.appendChild(celdaProducto);
-            fila.appendChild(celdaCodigo);
-            fila.appendChild(celdaCantidad);
-            fila.appendChild(celdaValor);
-            
-            // Agregar la fila al cuerpo de la tabla
-            cuerpoTabla.appendChild(fila);
-        }
+function insertarFila() {
+    // Obtener datos
+    const productoInpt = document.getElementById("productSelect");
+    const cantidadInpt = document.getElementById("cantidad");
 
-        // Llamar a la función para insertar una fila de ejemplo
-       
-    </script>
+    // Obtener el cuerpo de la tabla
+    var cuerpoTabla = document.getElementById("cuerpoTabla");
+
+    // Crear una nueva fila y celdas
+    var fila = document.createElement("tr");
+    var celdaProducto = document.createElement("th");
+    var celdaCodigo = document.createElement("td");
+    var celdaCantidad = document.createElement("td");
+    var celdaValor = document.createElement("td");
+
+    // Definir variables para el valor y el código del producto
+    var valorP, codigoP;
+
+    switch (productoInpt.value) {
+        case "Hamburguesa":
+            valorP = 15000;
+            codigoP = "HAM7071";
+            break;
+        case "Perro Caliente":
+            valorP = 7000;
+            codigoP = "PER1603";
+            break;
+        case "Picada Normal":
+            valorP = 14000;
+            codigoP = "PIC7642";
+            break;
+        case "Picada Familiar":
+            valorP = 29900;
+            codigoP = "PIC3488";
+            break;
+        case "Especial":
+            valorP = 45000;
+            codigoP = "ESP2447";
+            break;
+        default:
+            // Manejar el caso en el que el producto no esté en la lista
+            return;
+    }
+
+    // Calcular el valor total
+    var valorF = valorP * cantidadInpt.value;
+    var valorFormateado = valorF.toLocaleString();
+
+    // Agregar los valores a las celdas
+    celdaProducto.textContent = productoInpt.value;
+    celdaCodigo.textContent = codigoP;
+    celdaCantidad.textContent = cantidadInpt.value;
+    celdaValor.textContent = "$" + valorFormateado;
+
+    // Agregar las celdas a la fila
+    fila.appendChild(celdaProducto);
+    fila.appendChild(celdaCodigo);
+    fila.appendChild(celdaCantidad);
+    fila.appendChild(celdaValor);
+
+    // Agregar la fila al cuerpo de la tabla
+    cuerpoTabla.appendChild(fila);
+
+    // Sumar el valor al total global
+    sumaTotal += valorF;
+
+    // Mostrar la suma total en algún elemento de la interfaz de usuario
+   
+    totalString.textContent = sumaTotal.toLocaleString();
+
+    // Limpiar los valores de los inputs
+    productoInpt.value = "";
+    cantidadInpt.value = "";
+    
+    
+}
+
+
     </script>
 </body>
 </html>
