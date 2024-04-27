@@ -88,7 +88,7 @@
                     <option value="10"></option>
                 </datalist>
                 <input class="btnGropuPayment" type="button"  value="Añadir Producto" id="añadirP"><br>
-                <input  class="inputs" type="number"  id="recibido" placeholder="Se recibe" min="7000">
+                <input  class="inputs" type="number"  id="clientePaga" placeholder="Se recibe" min="7000">
                 <input class="inputs"  type="number" placeholder="Propina" min="1">
             </form>
             <div>
@@ -108,15 +108,15 @@
                 <div id="infoPayment">
                     <div>
                         <h2>Recibido:</h2>
-                        <p>$<span id="recibidoDiner"></span> COP</p>
+                        <p>$<span id="recibidoDiner">0</span> COP</p>
                     </div>
                     <div>
                         <h2>Vuelto:</h2>
-                        <p>$<span id="Dar"></span> COP</p>
+                        <p>$<span id="Dar">0</span> COP</p>
                     </div>
                     <div>
                         <h2>Total:</h2>
-                        <p>$<span id="dinero"></span> COP</p>
+                        <p>$<span id="dinero">0</span> COP</p>
                     </div>
                 </div>
             <div class="Btns_abajo">
@@ -137,94 +137,5 @@
     <footer></footer>
     <script src="./assets/script/index.js"></script>
     <script src="./assets/script/payment.js"></script>
-    <script>
-const boton_añadir = document.getElementById("añadirP");
-        boton_añadir.addEventListener('click', insertarFila);
-
- const totalString = document.getElementById("dinero");
-
-
-// Variable global para almacenar la suma total
-var sumaTotal = 0;
-
-function insertarFila() {
-    // Obtener datos
-    const productoInpt = document.getElementById("productSelect");
-    const cantidadInpt = document.getElementById("cantidad");
-
-    // Obtener el cuerpo de la tabla
-    var cuerpoTabla = document.getElementById("cuerpoTabla");
-
-    // Crear una nueva fila y celdas
-    var fila = document.createElement("tr");
-    var celdaProducto = document.createElement("th");
-    var celdaCodigo = document.createElement("td");
-    var celdaCantidad = document.createElement("td");
-    var celdaValor = document.createElement("td");
-
-    // Definir variables para el valor y el código del producto
-    var valorP, codigoP;
-
-    switch (productoInpt.value) {
-        case "Hamburguesa":
-            valorP = 15000;
-            codigoP = "HAM7071";
-            break;
-        case "Perro Caliente":
-            valorP = 7000;
-            codigoP = "PER1603";
-            break;
-        case "Picada Normal":
-            valorP = 14000;
-            codigoP = "PIC7642";
-            break;
-        case "Picada Familiar":
-            valorP = 29900;
-            codigoP = "PIC3488";
-            break;
-        case "Especial":
-            valorP = 45000;
-            codigoP = "ESP2447";
-            break;
-        default:
-            // Manejar el caso en el que el producto no esté en la lista
-            return;
-    }
-
-    // Calcular el valor total
-    var valorF = valorP * cantidadInpt.value;
-    var valorFormateado = valorF.toLocaleString();
-
-    // Agregar los valores a las celdas
-    celdaProducto.textContent = productoInpt.value;
-    celdaCodigo.textContent = codigoP;
-    celdaCantidad.textContent = cantidadInpt.value;
-    celdaValor.textContent = "$" + valorFormateado;
-
-    // Agregar las celdas a la fila
-    fila.appendChild(celdaProducto);
-    fila.appendChild(celdaCodigo);
-    fila.appendChild(celdaCantidad);
-    fila.appendChild(celdaValor);
-
-    // Agregar la fila al cuerpo de la tabla
-    cuerpoTabla.appendChild(fila);
-
-    // Sumar el valor al total global
-    sumaTotal += valorF;
-
-    // Mostrar la suma total en algún elemento de la interfaz de usuario
-   
-    totalString.textContent = sumaTotal.toLocaleString();
-
-    // Limpiar los valores de los inputs
-    productoInpt.value = "";
-    cantidadInpt.value = "";
-    
-    
-}
-
-
-    </script>
 </body>
 </html>
