@@ -65,7 +65,7 @@
             <h2>Nueva Venta</h2>
             <form id="ventaForm" action="">
                 <input class="inputs" type="text" placeholder="cliente" name="clientName">
-                <input class="inputs" list="platos" onchange="precioPlato();" placeholder="Elige el producto"  name="producto" id="productSelect">
+                <input class="inputs" list="platos"  placeholder="Elige el producto"  name="producto" id="productSelect">
                 <datalist id="platos">
                     <option value="Hamburguesa">HAM7071  <strong>$15.500 pesos</strong></option>
                     <option value="Perro Caliente">PER1603 <strong>$7.000 pesos</strong></option>
@@ -86,8 +86,8 @@
                     <option value="9"></option>
                     <option value="10"></option>
                 </datalist>
-                <input class="btnGropuPayment" type="button"  value="Añadir Producto"><br>
-                <input list="dineroRecibido" class="inputs" type="number" onchange="precios();" id="recibido" placeholder="Se recibe" min="7000">
+                <input class="btnGropuPayment" type="button"  value="Añadir Producto" id="añadirP"><br>
+                <input list="dineroRecibido" class="inputs" type="number"  id="recibido" placeholder="Se recibe" min="7000">
                 <datalist id="dineroRecibido">
                     <option value="$ 5.000"></option>
                     <option value="$ 7.000"></option>
@@ -115,13 +115,6 @@
                         </tr>
                     </thead>
                     <tbody id="cuerpoTabla">
-                        <tr>
-                            <th>Perro caliente</th>
-                            <td>PER1603</td>
-                            <td>2</td>
-                            <td>$ 14.000</td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>
@@ -149,22 +142,60 @@
     <script src="./assets/script/index.js"></script>
     <script src="./assets/script/payment.js"></script>
     <script>
+const boton_añadir = document.getElementById("añadirP");
+        boton_añadir.addEventListener('click', insertarFila);
+        
                 function insertarFila(producto, codigo, cantidad, valor) {
             // Obtener el cuerpo de la tabla
             var cuerpoTabla = document.getElementById("cuerpoTabla");
             
+            //obtener datos//
+            const productoInpt = document.getElementById("productSelect");
+            const cantidadInpt = document.getElementById("cantidad");
+        
+
             // Crear una nueva fila y celdas
             var fila = document.createElement("tr");
             var celdaProducto = document.createElement("th");
             var celdaCodigo = document.createElement("td");
             var celdaCantidad = document.createElement("td");
             var celdaValor = document.createElement("td");
+
+
+                    switch(productoInpt.value){
+                        case "Hamburguesa" :
+                        valorP=parseInt(15000);
+                        codigoP="HAM7071";
+                        break;
+                        case "Perro Caliente" :
+                        valorP=parseInt(7000);
+                        codigoP="PER1603";
+                        break;
+                        case "Picada Normal" :
+                        valorP=parseInt(14000);
+                        codigoP="PIC7642";
+                        break;
+                        case "Picada Familiar" :
+                        valorP=parseInt(29900);
+                        codigoP="PIC3488";
+                        break;
+                        case "Especial" :
+                        valorP=parseInt(45000);
+                        codigoP="ESP2447";
+                        break;
+                    }
+                producto=productoInpt.value;
+                cantidad=cantidadInpt.value;
+                valor=valorP;
+                codigo=codigoP;
             
+                    
+
             // Agregar los valores a las celdas
-            celdaProducto.textContent = producto;
+            celdaProducto.textContent =producto;
             celdaCodigo.textContent = codigo;
-            celdaCantidad.textContent = cantidad;
-            celdaValor.textContent = valor;
+            celdaCantidad.textContent =cantidad;
+            celdaValor.textContent =valor;
             
             // Agregar las celdas a la fila
             fila.appendChild(celdaProducto);
@@ -177,7 +208,7 @@
         }
 
         // Llamar a la función para insertar una fila de ejemplo
-        insertarFila("Hamburguesa", "HAM1701", "1", "$ 12.000");
+       
     </script>
     </script>
 </body>
