@@ -34,6 +34,10 @@ function openMenu(){
     menu.style.justifyContent="center";
     menu.style.opacity="1";
     menu.style.left="0";
+    document.getElementById("contenedorServicesAyS").style.transition="all 450ms";
+    document.getElementById("contenedorServicesAyS").style.width="90%";
+    document.getElementById("contenedorServicesAyS").style.position="relative";
+    document.getElementById("contenedorServicesAyS").style.left="5%";
 }
 function closeMenu(){
     closeMEn.style.display="none";
@@ -44,6 +48,8 @@ function closeMenu(){
     menu.style.opacity="0";
     menu.style.left="-800px";
     menu.style.display="flex";
+    document.getElementById("contenedorServicesAyS").style.width="100%";
+    document.getElementById("contenedorServicesAyS").style.left="0%";
 }
 
 openMen.addEventListener('click',openMenu);

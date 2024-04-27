@@ -37,13 +37,14 @@ ABRIR.addEventListener('click',()=>{
     }, 1);
     
 })
-
+var contenedorAll = document.getElementById("recibo");
+    contenedorAll.display="none";
 facturar.addEventListener('click',descargarPDF);
-
+contenedorAll.display="inline-block";
 var contenedorInfoPayment = document.getElementById("informacion_pago");
 var contenedorTabla = document.getElementById('contenedor_tabla');
     contenedorTabla.style.display="none";
-var contenedorAll = document.getElementById("recibo");
+
 function descargarPDF() {
     contenedorTabla.style.transition="all 300ms";
     contenedorTabla.style.display="flex";
@@ -77,6 +78,8 @@ function descargarPDF() {
 
 function limpiarTabla() {
     var cuerpoTabla = document.getElementById("cuerpoTabla");
+    contenedorAll.innerHTML="";
+    cuerpoTabla.innerHTML="";
     recibidoText.innerHTML="0";
     devolverTxt.innerHTML ="0";
     TOTAL.innerText="0";
@@ -150,9 +153,7 @@ function insertarFila() {
             valorP = 45000;
             codigoP = "ESP2447";
             break;
-        default:
-            // Manejar el caso en el que el producto no esté en la lista
-            return;
+        
     }
 
     // Calcular el valor total
@@ -181,7 +182,9 @@ function insertarFila() {
    
     totalString.textContent = sumaTotal.toLocaleString();
 
-    
+    // Limpiar los valores de los inputs
+    productoInpt.value = "";
+    cantidadInpt.value = "";
 }
 
 dineroRecibido.addEventListener('change',()=>{
@@ -197,9 +200,8 @@ dineroRecibido.addEventListener('change',()=>{
         }
     }
     pago();
-    // Limpiar los valores de los inputs
-    productoInpt.value = "";
-    cantidadInpt.value = "";
+
+
     
 })
 
