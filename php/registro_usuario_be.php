@@ -8,6 +8,6 @@
  $tipo_negocio=$_POST["Generico"];
 
  $query = "INSERT INTO usuarios_wipii(Nombre_completo, Email, clave) 
-        VALUES('$nombre_completo','$correo_registrado','$contraseña','$tipo_negocio')";
+        VALUES('$nombre_completo','$correo_registrado','$contraseña')";
 
 $ejecutar = mysqli_query($conexion,$query);

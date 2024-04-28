@@ -20,9 +20,11 @@ function galeryMode(){
 let productosVist = document.querySelectorAll('.contenedor_de_productos');
     for (let index = 0; index < productosVist.length; index++) {
         const element = productosVist[index];
-
+        const info = document.querySelectorAll('.labelProduct');
+        info[index].style.display="flex";
+        info[index].style.flexDiretion="column";
         element.style.width="200px";
-        element.style.height="200px"
+        element.style.height="150px"
     }
 
 }
