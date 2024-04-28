@@ -86,12 +86,10 @@ legend{
     padding: 2px 7px;
 }
 #addNewP{
-    background-color: white;
-}
-#addNewP{
     width: 150px;
     user-select: none;
     cursor: pointer;
+    margin:auto;
 
 }
 #addNewP:hover{

@@ -22,10 +22,7 @@ let productosVist = document.querySelectorAll('.contenedor_de_productos');
         const element = productosVist[index];
 
         element.style.width="200px";
-        element.style.height="200px";
-
-
-        
+        element.style.height="200px"
     }
 
 }
@@ -34,6 +31,13 @@ function listMode(){
     list.style.border="2px solid #39DB7D"
     galery.style.color="#fff";
     galery.style.border="none"
+    let productosVist = document.querySelectorAll('.contenedor_de_productos');
+    for (let index = 0; index < productosVist.length; index++) {
+        const element = productosVist[index];
+
+        element.style.width="1000px";
+        element.style.height="80px"
+    }
 }
 
 //acciones al AÑADIR PRODUCTO //
@@ -45,6 +49,7 @@ const newProduct = document.getElementById("newProduct"); // cuadro de nuevo pro
         newProduct.style.display="none";
         newProduct.style.opacity="0";
 const tipoDeProducto = document.getElementById("productType"); // seleccionar nuevo o existente//
+const nuevoPbtn = document.getElementById("nuevoProducto");
 const añadir = document.getElementById("añadir_productoAncore");
 const cancelar = document.getElementById("cancelarAñadirProducto");
 const atras = document.getElementById("backBtnNewP");
@@ -80,9 +85,9 @@ function atrasTipoP(){
 }
 atras.addEventListener('click', atrasTipoP);
 
-productoExistente.addEventListener('click',oldProduct);
+nuevoPbtn.addEventListener('click',nuevoProducto);
 
-function oldProduct(){
+function nuevoProducto(){
     cuadro.style.width="500px";
     cuadro.style.height="250px";
     tipoDeProducto.style.opacity="0";
