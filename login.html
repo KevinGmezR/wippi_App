@@ -29,11 +29,17 @@
                         </form>
                         <form class="formulariosW" id="registerForm" action="./php/registro_usuario_be.php" method="post">
                             <h2>Registrarse</h2>
-                            <input id="nameUser" class="registerInpt" type="text" name="fullName" placeholder="Nombre Completo">
+                            <input type="text" id="usuario" name="user" class="registerInpt" placeholder="Usuario">
+                            <input id="nameUser" class="registerInpt" type="text" name="name" placeholder="Nombre">
+                            <input type="text" class="registerInpt" id="apellidos" name="lastName" placeholder="Apellidos">
                             <input id="correo" class="registerInpt" type="email" name="email" placeholder="Correo Electronico">
                             <input class="registerInpt" type="password" name="password" placeholder="Contraseña">
+                            <h3>Tipo de Cuenta</h3>
+                            <input type="radio" name="tipo_user" id="cliente"><label for="tipo_user">Cliente</label>
+                            <input type="radio" name="tipo_user" id="proveedor"><label for="tipo_user">Proveedor</label>
+                            <input type="tel" name="celular" id="celular" minlength="10" placeholder="Numero de Celular">
                             
-                            <button type="button" id="registradoBtn" class="formBtn">Registrar</button>
+                            <button type="submit" id="registradoBtn" name="registroBtn" class="formBtn">Registrarse</button>
                         </form>
                     </div>
             </div>
